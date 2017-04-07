@@ -56,6 +56,7 @@ public class UserService {
 			user.setId(userDto.getId());
 		}
 		user.setUsername(userDto.getUsername());
+		user.setPassword(userDto.getPassword());
 		userRepository.save(user);
 	}
 }
