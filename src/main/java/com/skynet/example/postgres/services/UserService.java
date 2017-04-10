@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.skynet.example.postgres.domain.User;
 import com.skynet.example.postgres.dto.UserDto;
+import com.skynet.example.postgres.repository.CustomUserRepository;
 import com.skynet.example.postgres.repository.UserRepository;
 
 @Service
@@ -16,6 +17,9 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private CustomUserRepository customUserRepository;
 
 	@Transactional( readOnly = true)
 	public List<UserDto> getUsers() {
@@ -57,6 +61,7 @@ public class UserService {
 		}
 		user.setUsername(userDto.getUsername());
 		user.setPassword(userDto.getPassword());
-		userRepository.save(user);
+		//userRepository.save(user);
+		customUserRepository.saveUser(user.getUsername(), user.getPassword());
 	}
 }
