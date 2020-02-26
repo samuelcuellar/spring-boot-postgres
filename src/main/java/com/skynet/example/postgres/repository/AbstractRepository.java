@@ -15,7 +15,7 @@ import javax.persistence.criteria.Order;
 import javax.persistence.criteria.Root;
 
 import org.apache.commons.lang3.Validate;
-import org.hibernate.jpa.criteria.OrderImpl;
+import org.hibernate.query.criteria.internal.OrderImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

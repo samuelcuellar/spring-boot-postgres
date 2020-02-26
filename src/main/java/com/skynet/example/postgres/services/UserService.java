@@ -2,6 +2,7 @@ package com.skynet.example.postgres.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +33,12 @@ public class UserService {
 	
 	@Transactional( readOnly = true)
 	public UserDto getUser(Long id) {
-		User user = userRepository.findOne(id);
-		return new UserDto(user);
+		Optional<User> user = userRepository.findById(id);
+		if (user.isPresent()) {
+			return new UserDto(user.get());
+		} else {
+			return null;
+		}
 	}
 	
 	@Transactional( readOnly = true)
