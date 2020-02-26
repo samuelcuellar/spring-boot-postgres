@@ -1,4 +1,4 @@
-# Spring Boot Webapp + Posgres
+# Spring Boot Webapp + Postgres
 
 ## Getting Started
 
